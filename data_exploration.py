@@ -9,7 +9,6 @@ tweets = pd.read_csv("data/tweets_labelled.csv", delimiter=';')
 
 # general info of train dataset
 tweets.head()
-tweets.shape
 tweets['sentiment'].unique()
 
 # subset of data with manually labelled sentiment
@@ -24,4 +23,7 @@ plt.show()
 # frequency of different lengths
 tweets_label['length'] = tweets_label['text'].apply(lambda x: len(x))
 tweets_label['length'].plot.hist(bins=200)
+plt.show()
+# length influence on sentiment
+tweets_label.hist(column='length', by='sentiment', bins=150)
 plt.show()
